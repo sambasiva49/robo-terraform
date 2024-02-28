@@ -7,6 +7,18 @@ resource "aws_instance" "forntend" {
   }
 }
 
+
+data "aws_ami" "Centos" {
+
+  most_recent      = true
+  name_regex       = "Centos-8-DevOps-Practice"
+  owners           = [973714476881]
+
+  output "ami" {
+    value = data.aws_ami.Centos.image_id
+  }
+
+
 output "forntend" {
   value = aws_instance.forntend.public_ip
 }
