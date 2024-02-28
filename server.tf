@@ -7,6 +7,10 @@ resource "aws_instance" "forntend" {
   }
 }
 
+output "forntend" {
+  value = aws_instance.forntend.public_ip
+}
+
 resource "aws_instance" "catalogue" {
   ami           = "ami-0f3c7d07486cad139"
   instance_type = "t3.micro"
